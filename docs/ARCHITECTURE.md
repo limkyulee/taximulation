@@ -26,6 +26,10 @@ flowchart TB
 
 ## 2. 목표 코드 구조
 
+아래 구조 중 `src/client`, `src/server`, `src/shared` 하위의 진입점(`init.*`)과
+`bootstrap`, `controllers/views`, `domains/simulation/adapters`, `shared` 공통 폴더는
+기초 스캐폴딩으로 반영되었다. 세부 도메인 구현은 단계별 작업에서 확장한다.
+
 `예정` 항목은 아직 존재하거나 실행된다고 가정하지 않는다.
 
 ```text

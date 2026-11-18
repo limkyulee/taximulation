@@ -5,9 +5,37 @@ NPC 시민·교통·경찰과 외부 AI 감독이 플레이어 행동에 반응�
 
 ## 현재 상태
 
-2026-10-08 기준 **설계 단계**. 실행 코드는 Rojo 기본 진입점과 예제 모듈뿐이다.
+2026-11-17 기준 **설계 + Roblox 런타임 기초 골격 반영 상태**.
+실행 코드는 Rojo 기본 매핑 위에 공식 권장 패턴(클라이언트/서버 단일 진입점 + ModuleScript 중심)으로
+초기 스캐폴딩을 적용했다.
 문서에 나오는 서비스·인프라·하네스는 목표 설계이며 구현·배포·성능 검증 완료를 뜻하지 않는다.
 인접한 `../orchesty/`는 별도 프로젝트다.
+
+## Roblox 코드 기초 구조
+
+```text
+src/
+  client/
+    init.client.luau
+    bootstrap/ClientBootstrap.luau
+    controllers/
+    views/
+  server/
+    init.server.luau
+    bootstrap/ServerBootstrap.luau
+    domains/
+    simulation/
+    adapters/
+  shared/
+    contracts/
+    config/
+    math/
+    util/ModuleStarter.luau
+```
+
+- `init.client.luau`, `init.server.luau`는 각 런타임의 단일 진입점이다.
+- 실제 기능 로직은 ModuleScript로 분리하고 Bootstrap에서 조합해 시작한다.
+- 공통 규약/설정/순수 계산은 `shared`에 둔다.
 
 ## 설계 문서
 
